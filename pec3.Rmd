@@ -1,0 +1,382 @@
+---
+title: "Rentabilidad de grandes eventos deportivos en el contexto de los países BRICS"
+author: "Rodrigo Minguito Linaje"
+date: "30 de Noviembre de 2018"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+#install.packages("pander")
+#install.packages("reticulate")
+library(pander)
+library(knitr)
+library(kableExtra)
+library(gower)
+library(StatMatch)
+library(cluster)
+library(reticulate)
+knitr::opts_chunk$set(echo = TRUE)
+options(scipen=999)
+
+dibujaBM <- function(valoresInicial,nombrePais,annoEvento,titulo){
+  
+  x<-valoresInicial[valoresInicial$Country.Name==nombrePais,]
+  x
+  valoresXantes<-seq(2000,annoEvento-1)
+  valoresXdespues<-seq(annoEvento,2017)
+  numAnnosAntes=annoEvento-1999
+  valoresY<-as.numeric(x[,c(2:numAnnosAntes)])
+  rangoIni=min(valoresY)-(0.1*min(valoresY))
+  rangoFin=100
+  plot(valoresXantes,valoresY,xlim=c(2000,2017),ylim=c(rangoIni,rangoFin),  main=paste(titulo,nombrePais), pch=15, col="blue",ylab="%",xlab="Anno")
+
+  myline.fit <- lm(valoresY ~ valoresXantes)
+  abline(myline.fit,col="blue")
+  
+  numAnnosDespues=2017-annoEvento+numAnnosAntes
+  valoresY<-as.numeric(x[,c(numAnnosAntes:numAnnosDespues)])
+  points(valoresXdespues, valoresY, pch=16, col="red")
+  myline.fit <- lm(valoresY ~ valoresXdespues)
+  abline(myline.fit,col="red")
+  legend("bottomright", legend=c("Previo Evento","Posterior Evento"), pch=c(15,16), col=c("blue","red"))
+  
+}
+
+dibujaHDI <- function(valoresInicial,nombrePais,annoEvento){
+  x<-valoresInicial[valoresInicial$Country==nombrePais,]
+  valoresXantes<-seq(2000,annoEvento-1)
+  valoresXdespues<-seq(annoEvento,2017)
+  numAnnosAntes=annoEvento-1999
+  valoresY<-as.numeric(x[,c(2:numAnnosAntes)])
+  plot(valoresXantes,valoresY,xlim=c(2000,2017),ylim=c(0.4,1),  main=paste("Human Development Index de",nombrePais), pch=15, col="blue",ylab="Valor HDI",xlab="Anno")
+  
+  myline.fit <- lm(valoresY ~ valoresXantes)
+  abline(myline.fit,col="blue")
+  
+  numAnnosDespues=2017-annoEvento+numAnnosAntes
+  valoresY<-as.numeric(x[,c(numAnnosAntes:numAnnosDespues)])
+  points(valoresXdespues, valoresY, pch=16, col="red")
+  myline.fit <- lm(valoresY ~ valoresXdespues)
+  abline(myline.fit,col="red")
+  
+  legend("bottomright", legend=c("Previo Evento","Posterior Evento"), pch=c(15,16), col=c("blue","red"))
+}
+
+dibujaGPI <- function(valoresInicial,nombrePais,annoEvento){
+
+  x<-valoresInicial[valoresInicial$Country==nombrePais,]
+  valoresXantes<-seq(2008,annoEvento-1)
+  valoresXdespues<-seq(annoEvento,2017)
+  numAnnosAntes=annoEvento-2007
+  valoresY<-as.numeric(x[,c(2:numAnnosAntes)])
+  plot(valoresXantes,valoresY,xlim=c(2007,2018),ylim=c(1,4),  main=paste("Global Peace Index",nombrePais), pch=15, col="blue",ylab="Valor GPI",xlab="Anno")
+  
+  myline.fit <- lm(valoresY ~ valoresXantes)
+  abline(myline.fit,col="blue")
+  
+  numAnnosDespues=2017-annoEvento+numAnnosAntes
+  valoresY<-as.numeric(x[,c(numAnnosAntes:numAnnosDespues)])
+  points(valoresXdespues, valoresY, pch=16, col="red")
+  myline.fit <- lm(valoresY ~ valoresXdespues)
+  abline(myline.fit,col="red")
+  legend("bottomright", legend=c("Previo Evento","Posterior Evento"), pch=c(15,16), col=c("blue","red"))
+}
+```
+
+## Human Development Index
+```{r echo =FALSE, results = 'asis'}
+datosHDI<-read.csv("HDI.csv", header=TRUE,sep=",",dec=".", fill=TRUE, strip.white=TRUE)
+  datosHDI<-datosHDI[,c(2,13:30)] #Solo el pais y los resultados desde 2000
+  datosHDI<-datosHDI[complete.cases(datosHDI), ]
+
+  dibujaHDI(datosHDI[,c(1:19)],' China',2008)
+
+  
+  dibujaHDI(datosHDI[,c(1:19)],' South Africa',2010)
+  dibujaHDI(datosHDI[,c(1:19)],' Brazil',2014)
+  dibujaHDI(datosHDI[,c(1:19)],' Russian Federation',2014)
+
+  dibujaHDI(datosHDI[,c(1:19)],' Mexico',2010)
+  dibujaHDI(datosHDI[,c(1:19)],' India',2010)
+  dibujaHDI(datosHDI[,c(1:19)],' Korea (Republic of)',2010)
+
+```
+
+## Global Peace Index
+```{r echo =FALSE, results = 'asis'}
+datosGPI<-read.csv("GPI.csv", header=TRUE,sep=";",dec=".", fill=TRUE, strip.white=TRUE)
+datosGPI<-datosGPI[,c(1,23,21,19,17,15,13,11,9,7,5,3)] #Solo el pais y los resultados desde 2000
+datosGPI<-datosGPI[complete.cases(datosGPI), ]
+```
+
+No hay datos para China ya que el GPI se obtiene solo desde 2008, y para Sudáfrica solo hay dos valores previos, lo que desvirtua el gráfico.
+
+```{r echo =FALSE, results = 'asis'}
+  #dibujaGPI(datosGPI,'China',2008)
+  #dibujaGPI(datosGPI,'South Africa',2012)
+  dibujaGPI(datosGPI,'Brazil',2014)
+  dibujaGPI(datosGPI,'Russia',2014)
+
+  dibujaGPI(datosGPI,'Mexico',2012)
+  dibujaGPI(datosGPI,'India',2012)
+  dibujaGPI(datosGPI,'South Korea',2012)
+```
+
+
+
+```{r echo =FALSE, results = 'asis',message=FALSE, warning=FALSE}
+
+redondeo <- function(valor){
+  return (round(valor,3))
+}
+
+posneg <- function(valor){
+  if (valor>0){
+    return("POS")
+  }
+  if (valor<0){
+    return("NEG")
+  }
+  return("---")
+}
+
+evaluarCorr <- function(dato1,dato2){
+  out <- tryCatch(
+        {     
+            valorCorr=cor(dato1,dato2)
+            valorCorr=redondeo(valorCorr)
+            if ((as.numeric(valorCorr)) > 0.69) {
+              return(paste('<span style="background-color: #ccffeb;">&nbsp;&nbsp;',valorCorr,'<span>'))
+            }
+            if ((as.numeric(valorCorr)) < -0.69) {
+              return(paste('<span style="background-color: #ffe6e6;">&nbsp;&nbsp;',valorCorr,'<span>'))
+            }
+            return(paste('<span style="background-color: #ebebe0;">&nbsp;&nbsp;',valorCorr,'<span>'))
+          },
+        error=function(cond) {
+            return(NA)
+        },
+        warning=function(cond) {
+            return(NA)
+        },
+        finally={
+        }
+  )
+  return(out)
+  
+
+}
+
+
+
+
+analisisBMBrics <- function(fichero,titulo,rangoIni,rangoFin,equivalente2000,equivalenteUltimoAnno){
+    nombrePais<-c('CHN','ZAF','BRA','RUS')
+    namePais<-c('China','Sudafrica','Brasil','Rusia')
+  color<-c("red","orange","green","black")
+  eventos<-c(2008,2010,2014,2014)
+
+  cat(c('<table><tr valign="top"><td colspan=2>&nbsp;&nbsp;'))
+  datos<-read.csv(fichero,skip=4, header=TRUE,sep=",",dec=".", fill=TRUE, strip.white=TRUE)
+  datos<-datos[,c(2,45:61)   ] #Solo el pais y los resultados desde 2000
+  #cat(c(kable(datos)))
+  
+  datos2<-datos[c(1:264),as.numeric(c(1,2:18))]
+  datos2<-datos2[datos2$Country.Code!='CHN' & datos2$Country.Code!='ZAF' & datos2$Country.Code!='BRA' & datos2$Country.Code!='RUS' ,]
+  #cat(c(kable(datos2)))
+  datos3<-datos2[datos2$Country.Code=='MEX' | datos2$Country.Code=='IND' | datos2$Country.Code=='KOR' | datos2$Country.Code=='ARG' ,]
+  #cat(c(kable(datos3)))
+  
+  datos2[nrow(datos2)+1,(2:18)] <- colMeans(datos2[,2:18], na.rm=TRUE)
+  datos3[nrow(datos3)+1,(2:18)] <- colMeans(datos3[,2:18], na.rm=TRUE)
+  promedioMundial<-datos2[is.na(datos2$Country.Code),]
+  promedioNoBRCS<-datos3[is.na(datos3$Country.Code),]
+  #cat(c(kable(promedioMundial)))
+
+  valoresRegresion<-c(0)
+
+  i<-1
+  #Cabecera
+  numeroIndice=1
+  valoresRegresion[numeroIndice]<-paste('<tr><td colspan=3>',namePais[i],'&nbsp;&nbsp;</td></tr>')
+
+  #datos del país
+  x<-datos[datos$Country.Code==nombrePais[i],]
+  
+  #Comparar con Promedio Mundial 2000-2017
+  annoEvento=eventos[i]
+  valoresY<-as.numeric(x[,c(2:17)])
+  valoresY[is.na(valoresY)] = mean(valoresY[!is.na(valoresY)])
+  #numeroIndice<-numeroIndice+1
+  #valoresRegresion[numeroIndice]<-paste('<tr><td>&nbsp;&nbsp;Correlación con Promedio mundial&nbsp;&nbsp;</td><td>&nbsp;&nbsp;','2000 - 2017 &nbsp;&nbsp;</td><td>&nbsp;&nbsp;', evaluarCorr(as.numeric(promedioMundial[,c(2:17)]),valoresY),'&nbsp;&nbsp;</td></tr>')  
+  #numeroIndice<-numeroIndice+1
+  #valoresRegresion[numeroIndice]<-paste('<tr><td>&nbsp;&nbsp;Correlación con Promedio no BRCS&nbsp;&nbsp;</td><td>&nbsp;&nbsp;','2000 - 2017 &nbsp;&nbsp;</td><td>&nbsp;&nbsp;', evaluarCorr(as.numeric(promedioNoBRCS[,c(2:17)]),valoresY),'&nbsp;&nbsp;</td></tr>')  
+
+    
+  #2000 - Anno Evento
+  valoresX<-seq(2000,annoEvento-1)
+  numAnnosAntes=annoEvento-1999
+  valoresY<-as.numeric(x[,c(2:numAnnosAntes)])
+  valoresY[is.na(valoresY)] = mean(valoresY[!is.na(valoresY)])
+  plot(valoresX,valoresY,xlim=c(2000,2017),ylim=c(rangoIni,rangoFin),  main=titulo, pch=1, col=color[i],ylab="",xlab="Anno")
+  myline.fit <- lm(valoresY ~ valoresX)
+  abline(myline.fit,col=color[i],lty = 2)
+  numeroIndice<-numeroIndice+1
+  valoresRegresion[numeroIndice]<-paste('<tr><td>&nbsp;&nbsp;Tendencia&nbsp;&nbsp;</td><td>&nbsp;&nbsp;','2000 -',annoEvento,' </td><td>&nbsp;&nbsp;',posneg(myline.fit$coefficients[2]),'&nbsp;&nbsp;</td></tr>')
+  numeroIndice<-numeroIndice+1
+  valoresRegresion[numeroIndice]<-paste('<tr><td>&nbsp;&nbsp;Correlación con Promedio mundial&nbsp;&nbsp;</td><td>&nbsp;&nbsp;','2000 -',annoEvento,' &nbsp;&nbsp;</td><td>&nbsp;&nbsp;', evaluarCorr(as.numeric(promedioMundial[,c(2:numAnnosAntes)]),valoresY),'&nbsp;&nbsp;</td></tr>')
+  numeroIndice<-numeroIndice+1
+  valoresRegresion[numeroIndice]<-paste('<tr><td>&nbsp;&nbsp;Correlación con Promedio no BRCS&nbsp;&nbsp;</td><td>&nbsp;&nbsp;','2000 -',annoEvento,' &nbsp;&nbsp;</td><td>&nbsp;&nbsp;', evaluarCorr(as.numeric(promedioNoBRCS[,c(2:numAnnosAntes)]),valoresY),'&nbsp;&nbsp;</td></tr>')  
+  
+  #Anno Evento - 2017
+  numAnnosDespues=2017-annoEvento+numAnnosAntes
+  valoresY<-as.numeric(x[,c(numAnnosAntes:numAnnosDespues)])
+  valoresY[is.na(valoresY)] = mean(valoresY[!is.na(valoresY)])
+  valoresX<-seq(annoEvento,2017)
+  points(valoresX, valoresY, pch=16, col=color[i])
+  myline.fit <- lm(valoresY ~ valoresX)
+  abline(myline.fit,col=color[i])
+  numeroIndice<-numeroIndice+1
+    valoresRegresion[numeroIndice]<-paste('<tr><td>&nbsp;&nbsp;Tendencia&nbsp;&nbsp;</td><td>&nbsp;&nbsp;',annoEvento,' - 2017 </td><td>&nbsp;&nbsp;',posneg(myline.fit$coefficients[2]),'&nbsp;&nbsp;</td></tr>')
+  numeroIndice<-numeroIndice+1
+  valoresRegresion[numeroIndice]<-paste('<tr><td>&nbsp;&nbsp;Correlación con Promedio mundial&nbsp;&nbsp;</td><td>&nbsp;&nbsp;',annoEvento,' - 2017 &nbsp;&nbsp;</td><td>&nbsp;&nbsp;', evaluarCorr(as.numeric(promedioMundial[,c(numAnnosAntes:numAnnosDespues-1)]),valoresY),'&nbsp;&nbsp;</td></tr>')
+  numeroIndice<-numeroIndice+1
+  valoresRegresion[numeroIndice]<-paste('<tr><td>&nbsp;&nbsp;Correlación con Promedio no BRCS&nbsp;&nbsp;</td><td>&nbsp;&nbsp;',annoEvento,' - 2017 &nbsp;&nbsp;</td><td>&nbsp;&nbsp;', evaluarCorr(as.numeric(promedioNoBRCS[,c(numAnnosAntes:numAnnosDespues-1)]),valoresY),'&nbsp;&nbsp;</td></tr><tr height="2px"><td colspan=3  ><td></tr>')
+  
+  for (i in 2:4){
+    annoEvento=eventos[i]
+    x<-datos[datos$Country.Code==nombrePais[i],]
+    numeroIndice<-numeroIndice+1
+    valoresRegresion[numeroIndice]<-paste('<tr><td colspan=3>',namePais[i],'&nbsp;&nbsp;</td></tr>')
+    
+        #Comparar con Promedio Mundial 2000-2017
+    annoEvento=eventos[i]
+
+    valoresY<-as.numeric(x[,c(2:17)])
+    valoresY[is.na(valoresY)] = mean(valoresY[!is.na(valoresY)])
+    #numeroIndice<-numeroIndice+1
+    #valoresRegresion[numeroIndice]<-paste('<tr><td>&nbsp;&nbsp;Correlación con Promedio mundial&nbsp;&nbsp;</td><td>&nbsp;&nbsp;','2000 - 2017 &nbsp;&nbsp;</td><td>&nbsp;&nbsp;', evaluarCorr(as.numeric(promedioMundial[,c(2:17)]),valoresY),'&nbsp;&nbsp;</td></tr>')
+    #numeroIndice<-numeroIndice+1
+    #valoresRegresion[numeroIndice]<-paste('<tr><td>&nbsp;&nbsp;Correlación con Promedio no BRCS&nbsp;&nbsp;</td><td>&nbsp;&nbsp;','2000 - 2017 &nbsp;&nbsp;</td><td>&nbsp;&nbsp;', evaluarCorr(as.numeric(promedioNoBRCS[,c(2:17)]),valoresY),'&nbsp;&nbsp;</td></tr>')
+
+    valoresX<-seq(2000,annoEvento-1)
+    numAnnosAntes=annoEvento-1999
+    valoresY<-as.numeric(x[,c(2:numAnnosAntes)])
+    valoresY[is.na(valoresY)] = mean(valoresY[!is.na(valoresY)])
+    points(valoresX, valoresY, pch=1, col=color[i])
+    myline.fit <- lm(valoresY ~ valoresX)
+    abline(myline.fit,col=color[i],,lty = 2)
+  numeroIndice<-numeroIndice+1
+  valoresRegresion[numeroIndice]<-paste('<tr><td>&nbsp;&nbsp;Tendencia&nbsp;&nbsp;</td><td>&nbsp;&nbsp;','2000 -',annoEvento,' </td><td>&nbsp;&nbsp;',posneg(myline.fit$coefficients[2]),'&nbsp;&nbsp;</td></tr>')
+    numeroIndice<-numeroIndice+1
+    valoresRegresion[numeroIndice]<-paste('<tr><td>&nbsp;&nbsp;Correlación con Promedio mundial&nbsp;&nbsp;</td><td>&nbsp;&nbsp;','2000 -',annoEvento,' &nbsp;&nbsp;</td><td>&nbsp;&nbsp;', evaluarCorr(as.numeric(promedioMundial[,c(2:numAnnosAntes)]),valoresY),'&nbsp;&nbsp;</td></tr>')
+    numeroIndice<-numeroIndice+1
+    valoresRegresion[numeroIndice]<-paste('<tr><td>&nbsp;&nbsp;Correlación con Promedio no BRCS&nbsp;&nbsp;</td><td>&nbsp;&nbsp;','2000 -',annoEvento,' &nbsp;&nbsp;</td><td>&nbsp;&nbsp;', evaluarCorr(as.numeric(promedioNoBRCS[,c(2:numAnnosAntes)]),valoresY),'&nbsp;&nbsp;</td></tr>') 
+
+    
+    #Anno Evento - 2017
+    numAnnosDespues=2017-annoEvento+numAnnosAntes
+    valoresY<-as.numeric(x[,c(numAnnosAntes:numAnnosDespues)])
+    valoresY[is.na(valoresY)] = mean(valoresY[!is.na(valoresY)])
+    valoresX<-seq(annoEvento,2017)
+    points(valoresX, valoresY, pch=16, col=color[i])
+    myline.fit <- lm(valoresY ~ valoresX)
+    abline(myline.fit,col=color[i])
+    numeroIndice<-numeroIndice+1
+    valoresRegresion[numeroIndice]<-paste('<tr><td>&nbsp;&nbsp;Tendencia&nbsp;&nbsp;</td><td>&nbsp;&nbsp;',annoEvento,' - 2017 </td><td>&nbsp;&nbsp;',posneg(myline.fit$coefficients[2]),'&nbsp;&nbsp;</td></tr>')
+    numeroIndice<-numeroIndice+1
+    valoresRegresion[numeroIndice]<-paste('<tr><td>&nbsp;&nbsp;Correlación con Promedio mundial&nbsp;&nbsp;</td><td>&nbsp;&nbsp;',annoEvento,' - 2017 &nbsp;&nbsp;</td><td>&nbsp;&nbsp;', evaluarCorr(as.numeric(promedioMundial[,c(numAnnosAntes:numAnnosDespues-1)]),valoresY),'&nbsp;&nbsp;</td></tr>')
+    numeroIndice<-numeroIndice+1
+    valoresRegresion[numeroIndice]<-paste('<tr><td>&nbsp;&nbsp;Correlación con Promedio no BRCS&nbsp;&nbsp;</td><td>&nbsp;&nbsp;',annoEvento,' - 2017 &nbsp;&nbsp;</td><td>&nbsp;&nbsp;', evaluarCorr(as.numeric(promedioNoBRCS[,c(numAnnosAntes:numAnnosDespues-1)]),valoresY),'&nbsp;&nbsp;</td></tr><tr height="2px"><td colspan=3 ><td></tr>')    
+  }
+
+
+  legend("topleft", legend=namePais, pch=c(1), col=color)
+  legend("bottomleft", legend=c("Previo", "Posterior"),col=c("black", "black"), lty=2:1, cex=0.8)
+
+
+  cat(c('&nbsp;&nbsp;</td></tr><tr><td>&nbsp;&nbsp;'))
+  annoEvento=2010
+  color="pink"
+  valoresXantes<-seq(2000,annoEvento-1)
+  valoresXdespues<-seq(annoEvento,2017)
+  numAnnosAntes=annoEvento-1999
+  valoresY<-as.numeric(promedioMundial[,c(2:numAnnosAntes)])
+  valoresY[is.na(valoresY)] = mean(valoresY[!is.na(valoresY)])
+  plot(valoresXantes,valoresY,xlim=c(2000,2017),ylim=c(rangoIni,rangoFin),  main="Media mundial", pch=1, col=color,ylab="",xlab="Anno")
+  myline.fit <- lm(valoresY ~ valoresXantes)
+  abline(myline.fit,col=color,lty = 2)
+  numAnnosDespues=2017-annoEvento+numAnnosAntes
+  valoresY<-as.numeric(promedioMundial[,c(numAnnosAntes:numAnnosDespues)])
+  valoresY[is.na(valoresY)] = mean(valoresY[!is.na(valoresY)])
+  points(valoresXdespues, valoresY, pch=16, col=color)
+  myline.fit <- lm(valoresY ~ valoresXdespues)
+  abline(myline.fit,col=color)
+  
+    cat(c('&nbsp;&nbsp;</td><td>&nbsp;&nbsp;'))
+  annoEvento=2010
+  color="brown"
+  valoresXantes<-seq(2000,annoEvento-1)
+  valoresXdespues<-seq(annoEvento,2017)
+  numAnnosAntes=annoEvento-1999
+  valoresY<-as.numeric(promedioNoBRCS[,c(2:numAnnosAntes)])
+  valoresY[is.na(valoresY)] = mean(valoresY[!is.na(valoresY)])
+  plot(valoresXantes,valoresY,xlim=c(2000,2017),ylim=c(rangoIni,rangoFin),  main="Media No BRCS", pch=1, col=color,ylab="",xlab="Anno")
+  myline.fit <- lm(valoresY ~ valoresXantes)
+  abline(myline.fit,col=color,lty = 2)
+  numAnnosDespues=2017-annoEvento+numAnnosAntes
+  valoresY<-as.numeric(promedioNoBRCS[,c(numAnnosAntes:numAnnosDespues)])
+  valoresY[is.na(valoresY)] = mean(valoresY[!is.na(valoresY)])
+  points(valoresXdespues, valoresY, pch=16, col=color)
+  myline.fit <- lm(valoresY ~ valoresXdespues)
+  abline(myline.fit,col=color)
+  
+  
+  
+ cat(c('&nbsp;&nbsp;</td></tr></table><br/><hr>'))
+ cat('<b>Coeficientes de Correlacion -',titulo,'</b><br/><table border=4 style="padding:100px;cellspacing:100px">',valoresRegresion,'</table>')
+cat(c('<hr>'))
+  
+  
+  }
+
+
+
+
+sacarGraficos <- function(fichero,titulo,minimo,maximo){
+  analisisBMBrics(fichero, titulo,minimo,maximo,45,61)
+}
+
+sacarGraficos("Medicos.csv",'Médicos (por cada 1.000 personas)',0,6)
+sacarGraficos("EsperanzaVida.csv",'Esperanza de vida al nacer',20,100)
+sacarGraficos("Muertes5.csv",'Número de muertes de menores de 5 años',0,1000000)
+sacarGraficos("Poblacion65.csv",'Población de 65 años de edad y más, total',0,150000000)
+sacarGraficos("BrechaPobreza.csv",'Brecha de pobreza a $1,90 por día (2011 PPA) (%)',0,10)
+sacarGraficos("Tuberculosis.csv",'Incidencia de tuberculosis (por cada 100.000 personas)',30,160)
+
+sacarGraficos("AccesoElectricidad.csv",'Acceso a la electricidad BRCS (% de población)',50,100)
+sacarGraficos("EnergiaRenovable.csv",'Consumo de energía renovable (% del consumo total)',0,100)
+sacarGraficos("AccesoCocinaLimpia.csv",'Acceso a tecnologías limpias para cocinar (% población)',40,100)
+sacarGraficos("GastoConsumoFinalHogares.csv",'Gasto de consumo final de los hogares (US$ a precios actuales)',0,6303992000000)
+
+sacarGraficos("NinnasPrimaria.csv",'Ratio niñas/niños en educación primaria y secundaria',0.7,1.2)
+
+sacarGraficos("TurismoInternacional.csv",'Turismo internacional, número de arribos BRCS',1000000,60000000)
+sacarGraficos("TurismoInternacionalGasto.csv",'Turismo internacional, gastos (US$ a precios actuales)',1000000000,60000000000)
+sacarGraficos("InversionNetaExtranjera.csv",'Inversión extranjera directa, entrada neta de capital (% del PIB)',0,12)
+sacarGraficos("GastoID.csv",'Gasto en investigación y desarrollo (% del PIB)',0,6)
+sacarGraficos("ExportacionesAltaTecnologia.csv",'Exportaciones alta tecnología (% de exportaciones manufacturadas)',2,35)
+sacarGraficos("IndiceValorExportacion.csv",'Índice de valor de exportación (2000 = 100))',80,800)
+
+sacarGraficos("DesempleoMujeres.csv",'Desempleo, mujeres (% de la población activa femenina) (OIT)',0,30)
+sacarGraficos("DesempleoHombres.csv",'Desempleo, hombres (% de la población activa masculina) (OIT)',0,30)
+sacarGraficos("DesempleoTotal.csv",'Desempleo, total (% de la población activa total) (OIT)',0,30)
+sacarGraficos("SinEducacionEmpleoTrabajo.csv",'Jóvenes sin educación, empleo ni capacitación (% total jóvenes)',0,30)
+```
+
+```{r echo =FALSE, results = 'asis'}
+sacarGraficos("BandaAncha.csv",'Suscripciones a banda ancha fija (por cada 100 personas)',0,30)
+sacarGraficos("Moviles.csv",'Suscripciones a teléfono móvil (por cada 100 personas)',10,200)
+sacarGraficos("Internet.csv",'Personas que usan Internet (% de la población)',0,100)
+```
+

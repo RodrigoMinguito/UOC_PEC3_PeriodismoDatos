@@ -90,9 +90,9 @@ Si ahora lo comparo con los países candidatos a BRCS observo que en el primera 
 Si la comparación se hace ahora contra el resto de países del mundo no BRCS, se observa que en el primer rango no se comportan de forma semejante, y que en el segundo se comportan de una forma inversa (correlacion < -0.7), esto es, de 2000 a 2014 se comportaba de una forma diferente y de 2014 a 2017 se comporta de una forma totalmente contraria, ya que mientras ellos disminuyen él aumenta.
 
 ### Instrucciones para ver el fichero de informe
-El fichero, desde el visor de github no es legible.
+El fichero __Informe.html__ no es legible desde el visor de github.
 Para poder visualizarse apropiadamente debe descargarse en el equipo y abrirse de nuevo. 
-Por si este procedimiento no funciona, almaceno también el fichero en formato pdf
+Por si este procedimiento no funciona, almaceno también el fichero en formato pdf como __Informe.pdf__
 
 ## Características
 

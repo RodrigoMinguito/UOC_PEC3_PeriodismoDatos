@@ -14,7 +14,7 @@ Human Development Data - HDI (http://hdr.undp.org/en/data), descargado como csv
 
 Global Peace Index - GPI (https://en.wikipedia.org/wiki/Global_Peace_Index), descargado y guardado como csv
 
-Datos de Desarrollo Mundial (https://datos.bancomundial.org/indicador?tab=all), descarga individualizada del fichero comprimido y extracción del csv con los datos. Estos ficheros tienen la ventaja de mantener una interfaz idéntica entre ellos, lo que facilita el tratamiento y análisis. Más concretamente, he descargado para analizar los siguientes indicadores:
+Datos de Desarrollo Mundial del Banco Mundial (https://datos.bancomundial.org/indicador?tab=all), descarga individualizada del fichero comprimido y extracción del csv con los datos. Estos ficheros tienen la ventaja de mantener una interfaz idéntica entre ellos, lo que facilita el tratamiento y análisis. Más concretamente, he descargado para analizar los siguientes indicadores:
  - Médicos (por cada 1.000 personas)                                        
  - Esperanza de vida al nacer                                               
  - Número de muertes de menores de 5 años                                   
@@ -40,21 +40,50 @@ Datos de Desarrollo Mundial (https://datos.bancomundial.org/indicador?tab=all), 
  - Suscripciones a teléfono móvil (por cada 100 personas)                   
  - Personas que usan Internet (% de la población)                           
 
+He descargado más ficheros de índices del Banco Mundial (Brecha de Género, uso de anticonceptivos, población en tugurios...) pero no era factible su análisis al no contener valores para alguno de los países en alguno de los años.
+
 Así mismo, he descartado otros índices acumulados, como BLI o SPI porque no suministran datos previos a hace cinco años.
 
-Los ficheros están almacenados en el directorio csv y su análisis se lleva a cabo con el fichero pec3.Rmd
+Los ficheros están almacenados en el directorio csv y su análisis se lleva a cabo con el fichero pec3.Rmd. El resultado estadístico puro está disponible en los ficheros Informe.html (ver instrucciones para visualizarlo más adelante) e Informe.pdf
 
 ### Contacto con experto
 
+He contactado con Francesc González, (https://www.uoc.edu/webs/fgonzalezre/ES/curriculum/index.html) doctor en Geografía por la UAB y profesor de los Estudios de Economía y Empresa de la UOC, que hace análisis de impacto de eventos. La comunicación que mantengamos estará disponible en el fichero contactoFrancesc.txt
 
 
 ## Trabajo estadístico
+
+### HDI y GPI
+Una vez descargados los ficheros de los índices HDI y GPI he procedido a representar los valores de cada uno de los países gráficamente, incluyendo la recta de regresión, a la espera de ver cambios de tendencias a partir del año en el que tiene lugar el evento. También he representado a otros países que comparten características con los BRCS.
+
+### Datos del Banco Mundial
+En primer lugar he tenido que limpiar y adaptar los datos:
+ - Para los países a analizar, cuando no existían datos para un año he rellenado el valor con el promedio de valores de ese rango.
+ - Para calcula el promedio mundial he usado los países que tienen datos para ese año
+
+Para llevar este análisis para los índices he desarrollado una función que muestra tres gráficas y una tabla. 
+
+La primera gráfica contiene la evolución del índice para los cuatro países BRCS, representando las rectas de ajuste usando los puntos anteriores (línea punteada) y puntos posteriores (línea continua)
+La segunda gráfica representa los mismo que la anterior, pero para el promedio los países que serían candidatos al grupo BRCS (India, México, Corea del Sur y Argentina)
+La tercera gráfica muestra lo mismo, pero usando el promedio de todos los países del mundo, excluyendo a los BRCS.
+
+El objetivo de estas gráficas es visualizar cambios de tendencias que tengan como punto de ruptura el año del evento.
+
+La tabla constituye una visualización numérica, y con indicadores de color, de las características de las gráficas. Para cada uno de los BRCS muestra dos rangos de años (2000-evento y evento-2017) y detalla primeramente cual era la tendencia de ese periodo (obtenida a partir de la pendiente de la recta de ajuste) y después indica cómo de parecida es la distribución en ese rango respecto a los países candidatos a BRCS y respecto al promedio mundial.
+
+Con la tabla, además de visualizar más rápido los cambios de tendencia que se veían en las gráficas se puede ver también si el país pasa a comportarse de una manera distinta a como lo hace la mayoría.
+
+Todo esto parece algo enrevesado, así que lo explicaré con un ejemplo, usando los ficheros adjunto EjGraficas.PNG y EjTablas.PNG.
+
+En EjGraficas.PNG puede verse, por ejemplo para Brasil que la tendencia de % de mujeres paradas era descendente (línea verde discontinua), y a partir de su evento se vuelve ascendente (línea verde continua).
+
+En EjTablas.PNG, para Brasil, hay dos rangos, 2000-2014 y 2014-2017. La tendencia, como ya se ha visto en el gráfico es negativa (decreciente) en el primer rango y positiva en el segundo. Si ahora lo comparo con los países candidatos a BRCS observo que en el primera rango se comportaba como ellos (coeficiente de correlacion > 0.7) y en el segundo rango se comporta de una forma diferentes (correlacion < 0.7).
+Si la comparación se hace ahora contra el resto de países del mundo no BRCS, se observa que en el primer rango no se comportan de forma semejante, y que en el segundo se comportan de una forma inversa (correlacion < -0.7).
 
 ### Instrucciones para ver el fichero de informe
 El fichero, desde el visor de github no es legible.
 Para poder visualizarse apropiadamente debe descargarse en el equipo y abrirse de nuevo. 
 Por si este procedimiento no funciona, almaceno también el fichero en formato pdf
-
 
 ## Características
 

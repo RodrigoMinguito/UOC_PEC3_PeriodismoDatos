@@ -1,0 +1,28 @@
+Buenos días, Francesc.
+
+Me han pasado su contacto, como experto en el análisis de impacto de eventos.
+
+Soy alumno del Máster de Ciencia de Datos de la UOC y estoy trabajando en la asignatura Periodismos de Datos. 
+Para esta asignatura he elegido investigar el impacto social de los grandes eventos deportivos a nivel de país. He caido en la cuenta de dos aspectos:
+- A partir de cierto umbral, el impacto sobre la población será insignificante. Por ejemplo, los JJOO de Londres no mejorarán la calidad de vida de sus habitantes (porque las infraestructuras ya existen de antes), mientras que para Brásil implicarán construcciones nuevas.
+- Los últimos eventos han sido mayoritariamente desarrollados por países del grupo de los BRICS (Brasil, Rusia, China y Sudáfrica. India no ha desarrollado nada) y los próximos JJOO de Invierno serán en China.
+
+Además han salido noticias últimamente relativas a la falta de candidatos para alojar estos eventos.
+Por tanto me he centrado en el análisis de los BRCS (saco a la India) ya que son los que más están haciendo y donde más debería notarse el impacto.
+
+Estoy analizando los datos del Banco Mundial (https://datos.bancomundial.org/indicador?tab=all) y estoy comparando el antes y el después del evento, buscando:
+- cambios de tendencia (el paro bajaba antes, y después del evento aumenta)
+- diferencias respecto a otros grupos de países (candidatos a BRCS y media mundial) que cambian después del evento.
+
+Por el momento, he encontrado algún punto en común (el paro baja antes del evento y sube después, aumentan los turistas pero disminuye el gasto que hacen, aumenta el número de jóvenes sin educación, empleo ni capacitación...), pero no me parece nada concluyente.
+
+Por eso, para aumentar el alcance, me gustaría preguntarle varia cosas:
+- ¿Existe algún estudio, a nivel superior que el de la propia ciudad, respecto a resultados sociales de estos eventos (de cualquier tipo)?
+- En su caso, ¿cual sería el plazo para ver unos resultados?
+- Como opinión personal, ¿estos eventos mejoran la vida de los habitantes del lugar?
+- Como encuesta, ¿qué puede motivar a estos países a gastar 50.000 millones de euros si no hay un retorno para la población?
+
+Muchísimas gracias por su tiempo.
+
+Un saludo,
+Rodrigo Minguito Linaje

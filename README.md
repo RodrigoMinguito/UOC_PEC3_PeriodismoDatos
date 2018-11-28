@@ -77,7 +77,11 @@ Con la tabla, además de visualizar más rápido los cambios de tendencia que se
 
 Todo esto parece algo enrevesado, así que lo explicaré con un ejemplo, usando los ficheros adjunto __EjGraficas.PNG__ y __EjTablas.PNG__.
 
+![Ejemplo Graficas](/EjGraficas.PNG)
+
 En __EjGraficas.PNG__ puede verse, por ejemplo para Brasil que la tendencia de % de mujeres paradas era descendente (línea verde discontinua), y a partir de su evento se vuelve ascendente (línea verde continua).
+
+![Ejemplo Tablas](/EjTablas.PNG)
 
 En __EjTablas.PNG__, para Brasil, hay dos rangos, 2000-2014 y 2014-2017. La tendencia, como ya se ha visto en el gráfico es negativa (decreciente) en el primer rango y positiva en el segundo. 
 

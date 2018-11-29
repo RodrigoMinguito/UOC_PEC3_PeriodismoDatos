@@ -7,6 +7,10 @@
  - Extraer características
  - Encontrar el hilo argumental a partir del análisis de los datos
 
+ 
+__Aclaración__ En este análisis hablaré de países BRCS (Brasil, Rusia, China y Sudáfrica), países no BRCS o países candidatos a BRCS (Corea del Sur, India, México, Argentina) y global (que incluye los indicadores para todo el mundo excepto los países BRCS).
+El criterio para obtener el grupo de comparación de los no BRCS viene dado por [TBD]
+ 
 ## Origen de datos
 He ido recorriendo los datos indicados en los comentarios de la propuesta en la PEC2, y siguiendo enlaces. Finalmente, he recogido en el directorio __csv__ los siguientes datos:
 
@@ -97,9 +101,6 @@ Por si este procedimiento no funciona, almaceno también el fichero en formato p
 ## Características
 Las gráficas y tablas que se analizan están disponibles en el informe adjunto __Informe.html__.
 
-En este análisis hablaré de países BRCS (Brasil, Rusia, China y Sudáfrica), países no BRCS (Corea del Sur, India, México, Argentina) y global (que incluye los indicadores para todo el mundo excepto los países BRCS).
-
-El criterio para obtener el grupo de comparación de los no BRCS viene dado por [TBD]
 
 ###Análisis de indicadores agrupados (HDI y GPI)
 Respecto a HDI se observa que los países BRCS, en líneas generales, siguen tendencias muy similares a las que tenían en momentos previos a la celebración de los eventos. En el caso de Sudáfrica se muestra un crecimiento superior al de la tendencia de los años anteriores, si bien en los años anteriores se observaba un cierto estancamiento.

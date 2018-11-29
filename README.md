@@ -95,6 +95,66 @@ Para poder visualizarse apropiadamente debe descargarse en el equipo y abrirse d
 Por si este procedimiento no funciona, almaceno también el fichero en formato pdf como __Informe.pdf__
 
 ## Características
+Las gráficas y tablas que se analizan están disponibles en el informe adjunto __Informe.html__.
+
+En este análisis hablaré de países BRCS (Brasil, Rusia, China y Sudáfrica), países no BRCS (Corea del Sur, India, México, Argentina) y global (que incluye los indicadores para todo el mundo excepto los países BRCS).
+
+El criterio para obtener el grupo de comparación de los no BRCS viene dado por [TBD]
+
+###Análisis de indicadores agrupados (HDI y GPI)
+Respecto a HDI se observa que los países BRCS, en líneas generales, siguen tendencias muy similares a las que tenían en momentos previos a la celebración de los eventos. En el caso de Sudáfrica se muestra un crecimiento superior al de la tendencia de los años anteriores, si bien en los años anteriores se observaba un cierto estancamiento.
+
+El Global Peace Index no suministra demasiada información que permita llevar a cabo generalizaciones, ya que no está disponible para China y los datos Sudáfrica se limitan a dos valores posteriores a su evento.
+
+### Análisis de elementos relacionados con la salud de la población
+#### Médicos por cada 1.000 personas
+El indicador se manifiesta creciente (hay más médicos) tanto para países no BRCS como para el promedio mundial. Sin embargo los cuatro países BRCS no marcan una tendencia común posterior a sus eventos.
+
+#### Esperanza de vida al nacer.
+Los países no BRCS y el promedio mundial mostraban una clara tendencia alcista. Esta tendencia, incluso en la forma de la distribución, queda compartida para Brasil, China y Rusia, por lo que puede acacharse únicamente al evento. El caso sudáfricano es sorprendente ya que previo al evento demostraba una tendencia decreciente contraria a la norma mientras que posteriormente pasa a ajustarse al promedio.
+
+#### Muertes de menores de 5 años.
+Afortunadamente este indicador es decreciente de forma global y los países BRCS se adaptan bastante bien a la tendencia mundial. 
+
+#### Población de 65 años y más.
+A mayor población de estas edades (respecto a años anteriores) se entiende que mejor será el sistema sanitario. Nuevamente, un indicador con una tendencia global unificada, de forma ascendente en este caso. Mención especial a Rusia, que antes de su evento tenía un comportamiento plano muy ligeramente descendente y con posterioridad pasa a comportarse como el resto de países.
+
+### Indicadores de riqueza
+
+#### Brecha de pobreza a 1.90$ por día (a precios ajustados de 2011) (% de la población)
+Indicador globalmente descendente (tanto para no BRCS como mundialmente). Todos los países BRCS previamente a sus eventos se comportan de forma idéntica (baja el porcentaje), pero posteriormente todos, salvo China, o bien dejan de seguir la tendencia mundial (Brasil) o pasan directamente a comportarse de forma opuesta (Rusia y Sudáfrica)
+
+### Educación
+
+#### Ratio niñas/niños en educación primaria y secundaria
+Indicador curioso. Inicialmente se esperaría ver que se alcanza un ratio uno-uno, pero varios de los BRCS parten de valores superiores. Descartaré el índice. Es muy posible que por causas políticas (Política del Hijo Único, apoyada por abortos selectivos de embriones femeninos, en China) o económicas (se pone a los hijos varones a trabajar mientras se deja a las hijas en la escuela) los valores estén desvirtuados.
+Es notorio, sin embargo, que la tendencia sea globalmente hacia un ratio 1 y superior.
+
+#### Gasto en I+D (%PIB)
+Este indicador crece globalmente (muy despacio) y para los países no BRCS (más rápidamente). Los países BRCS no muestran una tendencia común. Mientras China crece de la misma forma que los no BRCS (sigue su distribución) y no sigue la global, tanto antes como después del evento, Sudáfrica y Brasil pasan a reducir su índice previamente creciente, y Rusia, que antes estaba reduciendo sus valores, ahora se comporta como un país no BRCS y aumenta su valor.
+
+
+### Confianza extranjera en el país
+
+#### Turismo Internacional, número de arribos y gasto en dolares.
+Globalmente y a nivel no BRCS la tendencia de ambos indicadores es creciente. Sin embargo, en el caso de los BRCS (salvo Rusia) el número de turistas se mantiene creciente después del evento, pero el gasto que realizan es menor, salvo en China, donde crece espectacularmente.
+
+#### Inversion extranjera directa (%PIB)
+La inversión extranjera, a nivel mundial, desciende pronunciadamente a partir de 2006, mientras que en los paises no BRCS se mantiene casi plana en un 2%. Para nuestro países BRCS se mantienen las tendencias de nivel global, salvo en Sudáfrica, que aumenta su inversión con posterioridad al evento.
+
+#### Exportacion de alta tecnología (% de manufacturas)
+Cuanta más tecnología exporte un país, más avanzado se le supondrá.
+Este valor crece mundialmente, pero decrece en los páises no BRCS. En el caso de BRCS, todos salvo China, pasan a exportar más tecnología, al contrario de lo que hacían con anterioridad. El caso chino podría justificarse en su papel general de fabricante de manufacturas de bajo nivel a nivel mundial.
+
+#### Índice de valor de exportación (100 = año 2000)
+Globalmente y en países no BRCS se observa una tendencia creciente. Para los países BRCS, salvo China, hay una tendencia decreciente, o casi plana, que rompe a partir del evente. Este gráfico puede combinarse con lo comentado en el anterior: China exporta mucho más, pero lo que exporta no entra dentro de la alta tecnología.
+
+### Desempleo
+Para este caso he analizado los índices para hombres, mujeres y unificados. En todos ellos se observa una tendencia descendente tanto a nivel global como de no BRCS, mientras que todos los BRCS muestran una ruptura de la tendencia previa con posterioridad al evento: después del evento, aumenta el paro.
+
+### Acceso a tecnología
+Aquí he tenido en cuenta el número de suscripciones a banda ancha, a telefonía móvil y personas que usan internet. Aquí los indicadores son crecientes para todos los países, tanto BRCS, como no BRCS como globalmente, y las distribuciones para los BRCS muestran correlación con las globales y no BRCS, por lo que puede determinarse una ruptura. Sorprendente el caso de las líneas de teléfono móvil donde la tendencia es a tener más de una por persona (por el Principio del Palomar), y que en Brasil esa tendencia disminuyese a partir del evento.
+
 
 ## Hilo Argumental
 

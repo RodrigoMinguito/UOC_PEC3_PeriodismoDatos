@@ -1,17 +1,45 @@
 # Periodismos de datos - PEC 3 - Rodrigo Minguito Linaje
-## Objetivos:
+## Contenido
 
+ - [Objetivos](#objetivos)
+ - [Aclaraciones](#aclaraciones)
+    - [Nombrado de países](#nombrado-de-países)
+    - [Instrucciones para ver el fichero de informe](#instrucciones-para-ver-el-fichero-de-informe)
  - [Conseguir datos](#conseguir-datos)
+   - [Datos de Internet](#datos-de-internet)
+   - [Contacto con Experto](#contacto-con-experto)
+ - [Trabajo Estadístico](#trabajo-estadístico)
+   - [HDI y GPI](#hdi-y-gpi)
+   - [Datos del Banco Mundial](#datos-del-banco-mundial)
+   - [Ejemplificacion](#ejemplificación)
+ - [Características](#características)
+   - [Análisis de indicadores agrupados HDI y GPI](#análisis-de-indicadores-agrupados-hdi-y-gpi)
+   - [Análisis de indicadores de riqueza y Calidad de vida](#análisis-de-indicadores-de-riqueza-y-calidad-de-vida)
+   - [Análisis de Indicadores de Educación](#análisis-de-indicadores-de-educación)
+   - [Análisis de Indicadores de confianza extranjera en el país](#análisis-de-indicadores-de-confianza-extranjera-en-el-país)
+ - [Hilo Argumental](#hilo-argumental)
+
+ ## Objetivos:
+ - Conseguir datos
  - Aplicar mecanismos de selección y filtrado de los datos
  - Utilizar descriptores estadísticos típicos
  - Extraer características
  - Encontrar el hilo argumental a partir del análisis de los datos
 
- 
-__Aclaración__ En este análisis hablaré de países BRCS (Brasil, Rusia, China y Sudáfrica), países no BRCS o países candidatos a BRCS (Corea del Sur, India, México, Argentina) y global (que incluye los indicadores para todo el mundo excepto los países BRCS).
+## Aclaraciones 
+
+### Nombrado de países
+En este análisis hablaré de países BRCS (Brasil, Rusia, China y Sudáfrica), países no BRCS o países candidatos a BRCS (Corea del Sur, India, México, Argentina) y global (que incluye los indicadores para todo el mundo excepto los países BRCS).
 El criterio para obtener el grupo de comparación de los no BRCS viene dado por [TBD]
+
+### Instrucciones para ver el fichero de informe
+El fichero __Informe.html__ no es legible desde el visor de github.
+Para poder visualizarse apropiadamente debe descargarse en el equipo y abrirse de nuevo. 
+Por si este procedimiento no funciona, almaceno también el fichero en formato pdf como __Informe.pdf__
  
-##Conseguir datos
+## Conseguir datos
+
+### Datos de Internet
 He ido recorriendo los datos indicados en los comentarios de la propuesta en la PEC2, y siguiendo enlaces. Finalmente, he recogido en el directorio __csv__ los siguientes datos:
 
 Human Development Data - HDI (http://hdr.undp.org/en/data), descargado como csv
@@ -48,7 +76,7 @@ He descargado más ficheros de índices del Banco Mundial (Brecha de Género, us
 
 Así mismo, he descartado otros índices acumulados, como BLI o SPI porque no suministran datos previos a hace cinco años.
 
-Los ficheros están almacenados en el directorio csv y su análisis se lleva a cabo con el fichero __pec3.Rmd__. El resultado estadístico puro está disponible en los ficheros __Informe.html__ (ver instrucciones para visualizarlo más adelante) e __Informe.pdf__
+Los ficheros están almacenados en el directorio csv y su análisis se lleva a cabo con el fichero __pec3.Rmd__. El resultado estadístico puro está disponible en los ficheros __Informe.html__ e __Informe.pdf__
 
 ### Contacto con experto
 
@@ -93,16 +121,11 @@ Si ahora lo comparo con los países candidatos a BRCS observo que en el primera 
 
 Si la comparación se hace ahora contra el resto de países del mundo no BRCS, se observa que en el primer rango no se comportan de forma semejante, y que en el segundo se comportan de una forma inversa (correlacion < -0.7), esto es, de 2000 a 2014 se comportaba de una forma diferente y de 2014 a 2017 se comporta de una forma totalmente contraria, ya que mientras ellos disminuyen él aumenta.
 
-### Instrucciones para ver el fichero de informe
-El fichero __Informe.html__ no es legible desde el visor de github.
-Para poder visualizarse apropiadamente debe descargarse en el equipo y abrirse de nuevo. 
-Por si este procedimiento no funciona, almaceno también el fichero en formato pdf como __Informe.pdf__
-
 ## Características
 Las gráficas y tablas que se analizan están disponibles en el informe adjunto __Informe.html__.
 
 
-###Análisis de indicadores agrupados (HDI y GPI)
+### Análisis de indicadores agrupados HDI y GPI
 Respecto a HDI se observa que los países BRCS, en líneas generales, siguen tendencias muy similares a las que tenían en momentos previos a la celebración de los eventos. En el caso de Sudáfrica se muestra un crecimiento superior al de la tendencia de los años anteriores, si bien en los años anteriores se observaba un cierto estancamiento.
 
 El Global Peace Index no suministra demasiada información que permita llevar a cabo generalizaciones, ya que no está disponible para China y los datos Sudáfrica se limitan a dos valores posteriores a su evento.
@@ -124,7 +147,7 @@ A mayor población de estas edades (respecto a años anteriores) se entiende que
 Se trata de un indicador decreciente a nivel global y no BRCS. Los BRCS cumplen con esta tendencia antes y después de sus eventos, y siguen la misma distribución. Sudáfrica, previamente a su evento tenía una tendencia creciente, pero con posterioridad, se comporta igual que el resto.
 
 
-### Indicadores de riqueza / Calidad de vida
+### Análisis de Indicadores de riqueza y Calidad de vida
 
 #### Brecha de pobreza a 1.90$ por día (a precios ajustados de 2011) (% de la población)
 Indicador globalmente descendente (tanto para no BRCS como mundialmente). Todos los países BRCS previamente a sus eventos se comportan de forma idéntica (baja el porcentaje), pero posteriormente todos, salvo China, o bien dejan de seguir la tendencia mundial (Brasil) o pasan directamente a comportarse de forma opuesta (Rusia y Sudáfrica)
@@ -142,7 +165,7 @@ Indicador creciente para todos los países. Los BRCS se comportan igual que el r
 Este es un indicador creciente tanto para los no BRCS como globalmente. Los países BRCS, salvo China, se ajustaban a la tendencia previamente al desarrollo de sus eventos, pero con posterioridad pasan a comportarse al contratio (disminuye el consumo)
 
 
-### Educación
+### Análisis de Indicadores de Educación
 
 #### Ratio niñas/niños en educación primaria y secundaria
 Indicador curioso. Inicialmente se esperaría ver que se alcanza un ratio uno-uno, pero varios de los BRCS parten de valores superiores. Descartaré el índice. Es muy posible que por causas políticas (Política del Hijo Único, apoyada por abortos selectivos de embriones femeninos, en China) o económicas (se pone a los hijos varones a trabajar mientras se deja a las hijas en la escuela) los valores estén desvirtuados.
@@ -155,7 +178,7 @@ Este índice se muestra casi constante en su tendencia global (tanto candidatos 
 Este indicador crece globalmente (muy despacio) y para los países no BRCS (más rápidamente). Los países BRCS no muestran una tendencia común. Mientras China crece de la misma forma que los no BRCS (sigue su distribución) y no sigue la global, tanto antes como después del evento, Sudáfrica y Brasil pasan a reducir su índice previamente creciente, y Rusia, que antes estaba reduciendo sus valores, ahora se comporta como un país no BRCS y aumenta su valor.
 
 
-### Confianza extranjera en el país
+### Análisis de Indicadores de confianza extranjera en el país
 
 #### Turismo Internacional, número de arribos y gasto en dolares.
 Globalmente y a nivel no BRCS la tendencia de ambos indicadores es creciente. Sin embargo, en el caso de los BRCS (salvo Rusia) el número de turistas se mantiene creciente después del evento, pero el gasto que realizan es menor, salvo en China, donde crece espectacularmente.

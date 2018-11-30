@@ -1,7 +1,7 @@
 # Periodismos de datos - PEC 3 - Rodrigo Minguito Linaje
 ## Objetivos:
 
- - Conseguir datos
+ - [Conseguir datos](#conseguir-datos)
  - Aplicar mecanismos de selección y filtrado de los datos
  - Utilizar descriptores estadísticos típicos
  - Extraer características
@@ -11,7 +11,7 @@
 __Aclaración__ En este análisis hablaré de países BRCS (Brasil, Rusia, China y Sudáfrica), países no BRCS o países candidatos a BRCS (Corea del Sur, India, México, Argentina) y global (que incluye los indicadores para todo el mundo excepto los países BRCS).
 El criterio para obtener el grupo de comparación de los no BRCS viene dado por [TBD]
  
-## Origen de datos
+##Conseguir datos
 He ido recorriendo los datos indicados en los comentarios de la propuesta en la PEC2, y siguiendo enlaces. Finalmente, he recogido en el directorio __csv__ los siguientes datos:
 
 Human Development Data - HDI (http://hdr.undp.org/en/data), descargado como csv

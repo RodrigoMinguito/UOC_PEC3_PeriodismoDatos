@@ -30,7 +30,7 @@
 
 ### Nombrado de países
 En este análisis hablaré de países BRCS (Brasil, Rusia, China y Sudáfrica), países no BRCS o países candidatos a BRCS (Corea del Sur, India, México, Argentina) y global (que incluye los indicadores para todo el mundo excepto los países BRCS).
-El criterio para obtener el grupo de comparación de los no BRCS viene dado por [TBD]
+El criterio para obtener el grupo de comparación de los no BRCS viene dado por ser comparables económicamente a los BRCS, pero estar excluidos por estar dentro de la OCDE, o, en este caso la India, no haber organizado eventos deportivos.
 
 ### Instrucciones para ver el fichero de informe
 El fichero __Informe.html__ no es legible desde el visor de github.
@@ -44,7 +44,7 @@ He ido recorriendo los datos indicados en los comentarios de la propuesta en la 
 
 Human Development Data - HDI (http://hdr.undp.org/en/data), descargado como csv
 
-Global Peace Index - GPI (https://en.wikipedia.org/wiki/Global_Peace_Index), descargado y guardado como csv
+Global Peace Index - GPI (https://en.wikipedia.org/wiki/Global_Peace_Index), descargado y guardado como csv.
 
 Datos de Desarrollo Mundial del Banco Mundial (https://datos.bancomundial.org/indicador?tab=all), descarga individualizada del fichero comprimido y extracción del csv con los datos. Estos ficheros tienen la ventaja de mantener una interfaz idéntica entre ellos, lo que facilita el tratamiento y análisis. Más concretamente, he descargado para analizar los siguientes indicadores:
  - Médicos (por cada 1.000 personas)                                        
@@ -172,7 +172,7 @@ Indicador curioso. Inicialmente se esperaría ver que se alcanza un ratio uno-un
 Es notorio, sin embargo, que la tendencia sea globalmente hacia un ratio 1 y superior.
 
 #### Jóvenes sin educación, empleo ni capacitación (% total jóvenes)
-Este índice se muestra casi constante en su tendencia global (tanto candidatos a BRCS como global). Los países BRCS muestran una inversión de su tendencia tras el desarrollo de sus eventos, salvo en el caso de Rusia en el rango 2014-2017 que se comporta como los candidatos a BRCS (que muestran una pequeña alza). Puede considerarse como cualidad significativa.
+Este índice se muestra casi constante en su tendencia global (tanto candidatos a BRCS como global). Los países BRCS muestran una inversión de su tendencia, previamente descendente, tras el desarrollo de sus eventos. Puede considerarse como cualidad significativa.
 
 #### Gasto en I+D (%PIB)
 Este indicador crece globalmente (muy despacio) y para los países no BRCS (más rápidamente). Los países BRCS no muestran una tendencia común. Mientras China crece de la misma forma que los no BRCS (sigue su distribución) y no sigue la global, tanto antes como después del evento, Sudáfrica y Brasil pasan a reducir su índice previamente creciente, y Rusia, que antes estaba reduciendo sus valores, ahora se comporta como un país no BRCS y aumenta su valor.
@@ -184,7 +184,7 @@ Este indicador crece globalmente (muy despacio) y para los países no BRCS (más
 Globalmente y a nivel no BRCS la tendencia de ambos indicadores es creciente. Sin embargo, en el caso de los BRCS (salvo Rusia) el número de turistas se mantiene creciente después del evento, pero el gasto que realizan es menor, salvo en China, donde crece espectacularmente.
 
 #### Inversion extranjera directa (%PIB)
-La inversión extranjera, a nivel mundial, desciende pronunciadamente a partir de 2006, mientras que en los paises no BRCS se mantiene casi plana en un 2%. Para nuestro países BRCS se mantienen las tendencias de nivel global, salvo en Sudáfrica, que aumenta su inversión con posterioridad al evento.
+La inversión extranjera, a nivel mundial, desciende pronunciadamente a partir de 2006, mientras que en los paises no BRCS se mantiene casi plana en un 2%. Para nuestros países BRCS se mantienen las tendencias de nivel global, salvo en Sudáfrica, que aumenta su inversión con posterioridad al evento.
 
 #### Exportacion de alta tecnología (% de manufacturas)
 Cuanta más tecnología exporte un país, más avanzado se le supondrá.
@@ -202,3 +202,12 @@ Aquí he tenido en cuenta el número de suscripciones a banda ancha, a telefoní
 
 ## Hilo Argumental
 
+A la vista de los análisis estadísticos hay ciertas características que podrían correlacionarse con los eventos deportivos:
+- Aumento del nivel de desempleo.
+- Aumento del turismo, pero descenso de su calidad (llegan más turistas, pero gastan menos).
+- Más jóvenes sin educación ni trabajo.
+- Salvo en China, el gasto de los hogares disminuye después de los eventos y aumenta la brecha de la riqueza.
+
+Aumento del paro, menor gasto de los hogares, turismo masivo de poca calidad, juventud perdida... Todo eso recuerda a la explosión de una burbuja, y con el conocimiento de lo que fueron los Juegos Olímpicos de 1992, y la posterior crisis (https://es.wikipedia.org/wiki/Crisis_econ%C3%B3mica_de_1993_en_Espa%C3%B1a) en España, y que España podría considerarse candidato a BRCS en esa época, parece existir cierta tendencia al inflado de burbujas.
+
+Por tanto, centraré mi hilo argumental en la existencia de burbujas asociadas a los grandes eventos y a sus posteriores efectos sobre la población.

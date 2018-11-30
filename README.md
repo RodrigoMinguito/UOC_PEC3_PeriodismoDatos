@@ -91,7 +91,7 @@ Una vez descargados los ficheros de los índices HDI y GPI he procedido a repres
 ### Datos del Banco Mundial
 En primer lugar he tenido que limpiar y adaptar los datos:
  - Para los países a analizar, cuando no existían datos para un año he rellenado el valor con el promedio de valores de ese rango.
- - Para calcula el promedio mundial he usado los países que tienen datos para ese año
+ - Para calcular el promedio mundial he usado los países que tienen datos para ese año
 
 Posteriormente, para llevar este análisis para los índices he desarrollado una función que muestra tres gráficas y una tabla. 
 

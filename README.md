@@ -107,7 +107,7 @@ Respecto a HDI se observa que los países BRCS, en líneas generales, siguen ten
 
 El Global Peace Index no suministra demasiada información que permita llevar a cabo generalizaciones, ya que no está disponible para China y los datos Sudáfrica se limitan a dos valores posteriores a su evento.
 
-### Análisis de elementos relacionados con la salud de la población
+### Análisis de indicadores sanitarios
 #### Médicos por cada 1.000 personas
 El indicador se manifiesta creciente (hay más médicos) tanto para países no BRCS como para el promedio mundial. Sin embargo los cuatro países BRCS no marcan una tendencia común posterior a sus eventos.
 
@@ -120,16 +120,36 @@ Afortunadamente este indicador es decreciente de forma global y los países BRCS
 #### Población de 65 años y más.
 A mayor población de estas edades (respecto a años anteriores) se entiende que mejor será el sistema sanitario. Nuevamente, un indicador con una tendencia global unificada, de forma ascendente en este caso. Mención especial a Rusia, que antes de su evento tenía un comportamiento plano muy ligeramente descendente y con posterioridad pasa a comportarse como el resto de países.
 
-### Indicadores de riqueza
+#### Incidencia de tuberculosis (casos por 100.000 habitantes)
+Se trata de un indicador decreciente a nivel global y no BRCS. Los BRCS cumplen con esta tendencia antes y después de sus eventos, y siguen la misma distribución. Sudáfrica, previamente a su evento tenía una tendencia creciente, pero con posterioridad, se comporta igual que el resto.
+
+
+### Indicadores de riqueza / Calidad de vida
 
 #### Brecha de pobreza a 1.90$ por día (a precios ajustados de 2011) (% de la población)
 Indicador globalmente descendente (tanto para no BRCS como mundialmente). Todos los países BRCS previamente a sus eventos se comportan de forma idéntica (baja el porcentaje), pero posteriormente todos, salvo China, o bien dejan de seguir la tendencia mundial (Brasil) o pasan directamente a comportarse de forma opuesta (Rusia y Sudáfrica)
+
+#### Acceso a la electricidad (% de población)
+Indicador creciente tanto para no BRCS como globalmente. Rusia no muestra datos ya que parte del 100% y no cambia. China y Brasil se ajustan antes y después del evento a las tendencias generales, y Sudáfrica muestra una tendencia acorde al resto de países antes de su evento, pero luego deja de comportarse igual (la distribución sigue siendo creciente, pero no guarda correlación con las globales)
+
+#### Consumo de energia renovable (% del total)
+Otro indicador curioso en sus resultados. Inicialmente cualquiera pensaría que debería ir creciendo, pero tanto a nivel global como no BRCS se ve un estancamiento... Esto es debido a que la energía renovable crece en cuanto a producción, pero también crece el consumo. Por ejemplo en muchos países se estarán instalando muchos paneles solares, que harán crecer el total de energía renovable, pero al mismo tiempo habrá muchos ciudadanos que puedan acceder a tener un coche, con lo cual aumentarán el consumo total de energía, lo que compensará a lo anterior. Respecto a los países BRCS se obaserva la misma tendencia global.
+
+#### Acceso a tecnologías limpias para cocinar (% población)
+Indicador creciente para todos los países. Los BRCS se comportan igual que el resto.
+
+#### Gasto de consumo final de los hogares (US$ a precios actuales) 
+Este es un indicador creciente tanto para los no BRCS como globalmente. Los países BRCS, salvo China, se ajustaban a la tendencia previamente al desarrollo de sus eventos, pero con posterioridad pasan a comportarse al contratio (disminuye el consumo)
+
 
 ### Educación
 
 #### Ratio niñas/niños en educación primaria y secundaria
 Indicador curioso. Inicialmente se esperaría ver que se alcanza un ratio uno-uno, pero varios de los BRCS parten de valores superiores. Descartaré el índice. Es muy posible que por causas políticas (Política del Hijo Único, apoyada por abortos selectivos de embriones femeninos, en China) o económicas (se pone a los hijos varones a trabajar mientras se deja a las hijas en la escuela) los valores estén desvirtuados.
 Es notorio, sin embargo, que la tendencia sea globalmente hacia un ratio 1 y superior.
+
+#### Jóvenes sin educación, empleo ni capacitación (% total jóvenes)
+Este índice se muestra casi constante en su tendencia global (tanto candidatos a BRCS como global). Los países BRCS muestran una inversión de su tendencia tras el desarrollo de sus eventos, salvo en el caso de Rusia en el rango 2014-2017 que se comporta como los candidatos a BRCS (que muestran una pequeña alza). Puede considerarse como cualidad significativa.
 
 #### Gasto en I+D (%PIB)
 Este indicador crece globalmente (muy despacio) y para los países no BRCS (más rápidamente). Los países BRCS no muestran una tendencia común. Mientras China crece de la misma forma que los no BRCS (sigue su distribución) y no sigue la global, tanto antes como después del evento, Sudáfrica y Brasil pasan a reducir su índice previamente creciente, y Rusia, que antes estaba reduciendo sus valores, ahora se comporta como un país no BRCS y aumenta su valor.

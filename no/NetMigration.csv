@@ -1,0 +1,37 @@
+Source: Wittgenstein Centre for Demography and Global Human Capital (2015). Wittgenstein Centre Data Explorer Version 1.2.
+Available at: www.wittgensteincentre.org/dataexplorer 
+Note: Your selection includes at least one country with limited base year data on educational attainment. Please consult the FAQ for more information
+""
+"Net Migration"
+"The number of immigrants minus the number of emigrants over a five-year period. Available in all scenarios, and at country level. It is expressed in thousands. Global net migration does not sum up to zero – see the FAQ for more details. <br><br> Source for 1970 to 2010: <a href=""http://esa.un.org/wpp/documentation/WPP%202010%20publications.htm"">UN Population Division, World Population Prospects 2010</a> "
+"Medium (SSP2)"
+" "
+"Area","Period","Net"
+"Brazil","2000-05",-500
+"Brazil","2005-10",-500
+"Brazil","2010-15",-396.15
+"Brazil","2015-20",-368.05
+"China","2000-05",-2298.05
+"China","2005-10",-1884.1
+"China","2010-15",-1447.66
+"China","2015-20",-1259.45
+"India","2000-05",-1923.24
+"India","2005-10",-3000
+"India","2010-15",-2348.33
+"India","2015-20",-2217.58
+"Republic of Korea","2000-05",-98.28
+"Republic of Korea","2005-10",-30
+"Republic of Korea","2010-15",-8.33
+"Republic of Korea","2015-20",4.06
+"Mexico","2000-05",-2596.16
+"Mexico","2005-10",-1805.24
+"Mexico","2010-15",-1519.98
+"Mexico","2015-20",-1436.56
+"Russian Federation","2000-05",1564.43
+"Russian Federation","2005-10",1135.74
+"Russian Federation","2010-15",1154.69
+"Russian Federation","2015-20",1206.35
+"South Africa","2000-05",700
+"South Africa","2005-10",700
+"South Africa","2010-15",687.54
+"South Africa","2015-20",705.38

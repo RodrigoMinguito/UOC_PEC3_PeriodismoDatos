@@ -1,7 +1,7 @@
 ---
-title: "Rentabilidad de grandes eventos deportivos en el contexto de los paÃ­ses BRICS"
+title: "Análisis por Kruskal Wallis de varios indicadores sociales entre países del grupo BRCS y los países de control."
 author: "Rodrigo Minguito Linaje"
-date: "4 de Enero de 2019"
+date: "19 de Enero de 2019"
 output: html_document
 ---
 
@@ -17,15 +17,6 @@ knitr::opts_chunk$set(echo = TRUE)
 options(scipen=999)
 ```
 
-```{r echo =FALSE, results = 'asis',message=FALSE, warning=FALSE}
-dibujar <- function(my_data){
-  p<-ggboxplot(my_data, x = "group", y = "weight", 
-          color = "group", palette = c("#00AFBB", "#E7B800"),
-          order = c("Control", "Organizador"),
-          ylab = "Weight", xlab = "Grupo")
-  print(p)
-}
-```
 
 ```{r echo =FALSE, results = 'asis',message=FALSE, warning=FALSE}
 library(dplyr)
@@ -35,20 +26,6 @@ datos<-read.csv("csv3.csv",header=TRUE,sep=";",dec=",", fill=TRUE, strip.white=T
 
 analisis <- function(criterio){
   valorPvalue=0.10
-  my_data <- PlantGrowth
-  medidas<-as.numeric(sub(",",".",as.character(datos$AnnoAtras[datos$CodConcepto %in% criterio])))
-  tipo<-as.factor(datos$Tipo[datos$CodConcepto %in% criterio])
-  levels(my_data$group) <- c(levels(my_data$group),"Control","Organizador")
-  for (i in 1:length(medidas)){
-    my_data$weight[i]=medidas[i]
-    my_data$group[i]=tipo[i]
-  }
-  my_data<-my_data[my_data$group=="Control" | my_data$group=="Organizador",]
-  salida<-kruskal.test(weight ~ group, data = my_data)
-  print("<br/><h3>Comparación con un año antes</h3><div>")
-  dibujar(my_data)
-  print(paste("<br/>p-valor para un año antes",  salida$p.value))
-  
 
   my_data <- PlantGrowth
   medidas<-as.numeric(sub(",",".",as.character(datos$Anno1[datos$CodConcepto %in% criterio])))
@@ -60,9 +37,7 @@ analisis <- function(criterio){
   }
   my_data<-my_data[my_data$group=="Control" | my_data$group=="Organizador",]
   salida<-kruskal.test(weight ~ group, data = my_data)
-  print("<br/><h3>Comparación con un año después</h3>")
-  dibujar(my_data)
-  print(paste("<br/>p-valor para un año después",  salida$p.value))
+  unoDesp=salida$p.value
   
   my_data <- PlantGrowth
   medidas<-as.numeric(sub(",",".",as.character(datos$Anno2[datos$CodConcepto %in% criterio])))
@@ -74,18 +49,36 @@ analisis <- function(criterio){
   }
   my_data<-my_data[my_data$group=="Control" | my_data$group=="Organizador",]
   salida<-kruskal.test(weight ~ group, data = my_data)
-  print("<br/><h3>Comparación con dos años después</h3>")
-  dibujar(my_data)
-  print(paste("<br/>p-valor para dos años después",  salida$p.value))
+  dosDesp=salida$p.value
+  
+  if (unoDesp<0.10 & dosDesp<0.10){
+    cat(
+    "<table border=1 cellpadding='10' style='background-color: red'><tr><td></td><td>p-valor></td></tr><tr><td>&nbsp;1 año después&nbsp;</td><td>&nbsp;",
+    unoDesp,
+    "&nbsp;</td></tr><tr><td>&nbsp;2 años después&nbsp;</td><td>&nbsp;",
+    dosDesp,
+    "&nbsp;</td></tr></table>"
+    )
+  }else{
+    cat(
+    "<table border=1 cellpadding='10' ><tr><td></td><td>p-valor></td></tr><tr><td>&nbsp;1 año después&nbsp;</td><td>&nbsp;",
+    unoDesp,
+    "&nbsp;</td></tr><tr><td>&nbsp;2 años después&nbsp;</td><td>&nbsp;",
+    dosDesp,
+    "&nbsp;</td></tr></table>"
+    )
+  }
+  
 }
 
 ```
+Se marcan en rojos aquellos cuyo p-valor sea menor de 0.10.
 
 ```{r echo =FALSE, results = 'asis',message=FALSE, warning=FALSE}
 c<-unique(datos$CodConcepto)
 for (concepto in c){
   nombre=unique(datos$Concepto[datos$CodConcepto==concepto])
-  print(paste("<br/><br/><br/><h2>",nombre,"</h2>"))
+  cat(paste("<br/><br/><br/><h2>",nombre,"</h2>"))
   analisis(concepto)
 }
 ```

@@ -361,7 +361,7 @@
         <calculation class='tableau' formula='1' />
       </column>
       <column datatype='string' name='[Pais]' role='dimension' semantic-role='[Country].[ISO3166_2]' type='nominal' />
-      <column caption='ValorAnno' datatype='real' name='[Valores de campo de tabla dinámica]' role='measure' type='quantitative' />
+      <column caption='GPI' datatype='real' name='[Valores de campo de tabla dinámica]' role='measure' type='quantitative' />
       <column-instance column='[Pais]' derivation='None' name='[none:Pais:nk]' pivot='key' type='nominal' />
       <group caption='Acción (Pais)' hidden='true' name='[Action (Pais)]' name-style='unqualified' user:auto-column='sheet_link'>
         <groupfilter function='crossjoin'>
@@ -622,7 +622,7 @@
             <column caption='Cod Concepto' datatype='string' name='[CodConcepto]' role='dimension' type='nominal' />
             <column caption='Anno' datatype='date' name='[Nombres de campo de tabla dinámica]' role='dimension' type='ordinal' />
             <column datatype='string' name='[Pais]' role='dimension' semantic-role='[Country].[ISO3166_2]' type='nominal' />
-            <column caption='ValorAnno' datatype='real' name='[Valores de campo de tabla dinámica]' role='measure' type='quantitative' />
+            <column caption='GPI' datatype='real' name='[Valores de campo de tabla dinámica]' role='measure' type='quantitative' />
             <column-instance column='[CodConcepto]' derivation='None' name='[none:CodConcepto:nk]' pivot='key' type='nominal' />
             <column-instance column='[Pais]' derivation='None' name='[none:Pais:nk]' pivot='key' type='nominal' />
             <column-instance column='[Valores de campo de tabla dinámica]' derivation='Sum' name='[sum:Valores de campo de tabla dinámica:qk]' pivot='key' type='quantitative' />
@@ -694,7 +694,7 @@
             <column caption='Cod Concepto' datatype='string' name='[CodConcepto]' role='dimension' type='nominal' />
             <column caption='Anno' datatype='date' name='[Nombres de campo de tabla dinámica]' role='dimension' type='ordinal' />
             <column datatype='string' name='[Pais]' role='dimension' semantic-role='[Country].[ISO3166_2]' type='nominal' />
-            <column caption='ValorAnno' datatype='real' name='[Valores de campo de tabla dinámica]' role='measure' type='quantitative' />
+            <column caption='GPI' datatype='real' name='[Valores de campo de tabla dinámica]' role='measure' type='quantitative' />
             <column-instance column='[CodConcepto]' derivation='None' name='[none:CodConcepto:nk]' pivot='key' type='nominal' />
             <column-instance column='[Pais]' derivation='None' name='[none:Pais:nk]' pivot='key' type='nominal' />
             <column-instance column='[Valores de campo de tabla dinámica]' derivation='Sum' name='[sum:Valores de campo de tabla dinámica:qk]' pivot='key' type='quantitative' />
@@ -763,7 +763,7 @@
             <column caption='Cod Concepto' datatype='string' name='[CodConcepto]' role='dimension' type='nominal' />
             <column caption='Anno' datatype='date' name='[Nombres de campo de tabla dinámica]' role='dimension' type='ordinal' />
             <column datatype='string' name='[Pais]' role='dimension' semantic-role='[Country].[ISO3166_2]' type='nominal' />
-            <column caption='ValorAnno' datatype='real' name='[Valores de campo de tabla dinámica]' role='measure' type='quantitative' />
+            <column caption='GPI' datatype='real' name='[Valores de campo de tabla dinámica]' role='measure' type='quantitative' />
             <column-instance column='[CodConcepto]' derivation='None' name='[none:CodConcepto:nk]' pivot='key' type='nominal' />
             <column-instance column='[Pais]' derivation='None' name='[none:Pais:nk]' pivot='key' type='nominal' />
             <column-instance column='[Valores de campo de tabla dinámica]' derivation='Sum' name='[sum:Valores de campo de tabla dinámica:qk]' pivot='key' type='quantitative' />
@@ -828,7 +828,7 @@
             <column caption='Cod Concepto' datatype='string' name='[CodConcepto]' role='dimension' type='nominal' />
             <column caption='Anno' datatype='date' name='[Nombres de campo de tabla dinámica]' role='dimension' type='ordinal' />
             <column datatype='string' name='[Pais]' role='dimension' semantic-role='[Country].[ISO3166_2]' type='nominal' />
-            <column caption='ValorAnno' datatype='real' name='[Valores de campo de tabla dinámica]' role='measure' type='quantitative' />
+            <column caption='GPI' datatype='real' name='[Valores de campo de tabla dinámica]' role='measure' type='quantitative' />
             <column-instance column='[CodConcepto]' derivation='None' name='[none:CodConcepto:nk]' pivot='key' type='nominal' />
             <column-instance column='[Pais]' derivation='None' name='[none:Pais:nk]' pivot='key' type='nominal' />
             <column-instance column='[Valores de campo de tabla dinámica]' derivation='Sum' name='[sum:Valores de campo de tabla dinámica:qk]' pivot='key' type='quantitative' />
@@ -891,7 +891,7 @@
             <column caption='Cod Concepto' datatype='string' name='[CodConcepto]' role='dimension' type='nominal' />
             <column caption='Anno' datatype='date' name='[Nombres de campo de tabla dinámica]' role='dimension' type='ordinal' />
             <column datatype='string' name='[Pais]' role='dimension' semantic-role='[Country].[ISO3166_2]' type='nominal' />
-            <column caption='ValorAnno' datatype='real' name='[Valores de campo de tabla dinámica]' role='measure' type='quantitative' />
+            <column caption='GPI' datatype='real' name='[Valores de campo de tabla dinámica]' role='measure' type='quantitative' />
             <column-instance column='[CodConcepto]' derivation='None' name='[none:CodConcepto:nk]' pivot='key' type='nominal' />
             <column-instance column='[Pais]' derivation='None' name='[none:Pais:nk]' pivot='key' type='nominal' />
             <column-instance column='[Valores de campo de tabla dinámica]' derivation='Sum' name='[sum:Valores de campo de tabla dinámica:qk]' pivot='key' type='quantitative' />
@@ -962,7 +962,7 @@
             <column caption='Cod Concepto' datatype='string' name='[CodConcepto]' role='dimension' type='nominal' />
             <column caption='Anno' datatype='date' name='[Nombres de campo de tabla dinámica]' role='dimension' type='ordinal' />
             <column datatype='string' name='[Pais]' role='dimension' semantic-role='[Country].[ISO3166_2]' type='nominal' />
-            <column caption='ValorAnno' datatype='real' name='[Valores de campo de tabla dinámica]' role='measure' type='quantitative' />
+            <column caption='GPI' datatype='real' name='[Valores de campo de tabla dinámica]' role='measure' type='quantitative' />
             <column-instance column='[CodConcepto]' derivation='None' name='[none:CodConcepto:nk]' pivot='key' type='nominal' />
             <column-instance column='[Pais]' derivation='None' name='[none:Pais:nk]' pivot='key' type='nominal' />
             <column-instance column='[Valores de campo de tabla dinámica]' derivation='Sum' name='[sum:Valores de campo de tabla dinámica:qk]' pivot='key' type='quantitative' />
@@ -1034,7 +1034,7 @@
             <column caption='Cod Concepto' datatype='string' name='[CodConcepto]' role='dimension' type='nominal' />
             <column caption='Anno' datatype='date' name='[Nombres de campo de tabla dinámica]' role='dimension' type='ordinal' />
             <column datatype='string' name='[Pais]' role='dimension' semantic-role='[Country].[ISO3166_2]' type='nominal' />
-            <column caption='ValorAnno' datatype='real' name='[Valores de campo de tabla dinámica]' role='measure' type='quantitative' />
+            <column caption='GPI' datatype='real' name='[Valores de campo de tabla dinámica]' role='measure' type='quantitative' />
             <column-instance column='[CodConcepto]' derivation='None' name='[none:CodConcepto:nk]' pivot='key' type='nominal' />
             <column-instance column='[Pais]' derivation='None' name='[none:Pais:nk]' pivot='key' type='nominal' />
             <column-instance column='[Valores de campo de tabla dinámica]' derivation='Sum' name='[sum:Valores de campo de tabla dinámica:qk]' pivot='key' type='quantitative' />
@@ -1099,7 +1099,7 @@
             <column caption='Cod Concepto' datatype='string' name='[CodConcepto]' role='dimension' type='nominal' />
             <column caption='Anno' datatype='date' name='[Nombres de campo de tabla dinámica]' role='dimension' type='ordinal' />
             <column datatype='string' name='[Pais]' role='dimension' semantic-role='[Country].[ISO3166_2]' type='nominal' />
-            <column caption='ValorAnno' datatype='real' name='[Valores de campo de tabla dinámica]' role='measure' type='quantitative' />
+            <column caption='GPI' datatype='real' name='[Valores de campo de tabla dinámica]' role='measure' type='quantitative' />
             <column-instance column='[CodConcepto]' derivation='None' name='[none:CodConcepto:nk]' pivot='key' type='nominal' />
             <column-instance column='[Pais]' derivation='None' name='[none:Pais:nk]' pivot='key' type='nominal' />
             <column-instance column='[Valores de campo de tabla dinámica]' derivation='Sum' name='[sum:Valores de campo de tabla dinámica:qk]' pivot='key' type='quantitative' />
@@ -1164,7 +1164,7 @@
             <column caption='Cod Concepto' datatype='string' name='[CodConcepto]' role='dimension' type='nominal' />
             <column caption='Anno' datatype='date' name='[Nombres de campo de tabla dinámica]' role='dimension' type='ordinal' />
             <column datatype='string' name='[Pais]' role='dimension' semantic-role='[Country].[ISO3166_2]' type='nominal' />
-            <column caption='ValorAnno' datatype='real' name='[Valores de campo de tabla dinámica]' role='measure' type='quantitative' />
+            <column caption='GPI' datatype='real' name='[Valores de campo de tabla dinámica]' role='measure' type='quantitative' />
             <column-instance column='[CodConcepto]' derivation='None' name='[none:CodConcepto:nk]' pivot='key' type='nominal' />
             <column-instance column='[Pais]' derivation='None' name='[none:Pais:nk]' pivot='key' type='nominal' />
             <column-instance column='[Valores de campo de tabla dinámica]' derivation='Sum' name='[sum:Valores de campo de tabla dinámica:qk]' pivot='key' type='quantitative' />
